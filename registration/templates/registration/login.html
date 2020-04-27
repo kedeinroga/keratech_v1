@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+    <html lang="es">
+        {% load static %}
+    <head>
+        <meta charset="utf-8" />
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Premium Bootstrap 4 Landing Page Template" />
+        <meta name="keywords" content="bootstrap 4, premium, marketing, multipurpose" />
+        <meta name="author" content="Shreethemes" />
+        <meta name="Version" content="2.0" />
+        <!-- favicon -->
+        <link rel="shortcut icon" href="{% static 'core/images/favicon.ico' %}">
+        <!-- Bootstrap -->
+        <link href="{% static 'core/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- Icons -->
+        <link href="{% static 'core/css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- Main Css -->
+        <link href="{% static 'core/css/style.css' %}" rel="stylesheet" type="text/css" id="theme-opt" />
+        <link href="{% static 'core/css/colors/default.css' %}" rel="stylesheet" id="color-opt">
+
+    </head>
+
+    <body>
+        <!-- Loader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Loader -->
+        <div class="back-to-home rounded d-none d-sm-block">
+            <a href="{% url 'home' %}" class="text-white rounded d-inline-block text-center"><i class="mdi mdi-home"></i></a>
+        </div>
+        <!-- Hero Start -->
+        {% if request.user.is_authenticated %}
+            <script>window.location.href = '/accounts/profile/'; </script>
+        {% endif %}
+        <style>.errorlist{color:red;}</style>
+        <section class="bg-home d-flex align-items-center">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-6">
+                    {% if request.user.profile.avatar %}
+                        <div class="mr-lg-5">   
+                            <img src="{{request.user.profile.avatar.url}}" class="img-fluid d-block mx-auto" alt="">
+                        </div>
+                    {% else %}
+                        <div class="mr-lg-5">
+                            <img src="{% static 'core/images/user/login.png' %}" class="img-fluid d-block mx-auto">
+                        </div>
+                    {% endif %}
+                    </div>
+                    <div class="col-lg-5 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <div class="login-page bg-white shadow rounded p-4">
+                            {% if 'register' in request.GET %}
+                                <p style="color:green;">Usuario registrado correctamente, ya puedes identificarte.</p>
+                            {% endif %}
+                            <div class="text-center">
+                                <h4 class="mb-4">Login</h4>  
+                            </div>
+                            <form action="" method="post" class="login-form">{% csrf_token %}
+                                {% if form.non_field_errors %}
+                                    <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+                                {% endif %}
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group position-relative">
+                                            <label>Nombre de usuario <span class="text-danger">*</span></label>
+                                            <i class="mdi mdi-account ml-3 icons"></i>
+                                            <input type="text" name="username" autofocus maxlength="254" required
+                                            id="id_username" class="form-control" placeholder="Nombre de usuario"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="form-group position-relative">
+                                            <label>Contraseña <span class="text-danger">*</span></label>
+                                            <i class="mdi mdi-key ml-3 icons"></i>
+                                            <input type="password" name="password" required
+                                            id="id_password" class="form-control" placeholder="Contraseña"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <p class="float-right forgot-pass"><a href="{% url 'password_reset' %}" class="text-dark font-weight-bold">Forgot password ?</a></p>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                <label class="custom-control-label" for="customCheck1">Remember me</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 mb-0">
+                                        <button class="btn btn-primary w-100">Sign in</button>
+                                    </div>
+                                    
+                                    <div class="col-12 text-center">
+                                        <p class="mb-0 mt-3"><small class="text-dark mr-2">Don't have an account ?</small> <a href="{% url 'signup' %}" class="text-dark font-weight-bold">Sign Up</a></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div><!---->
+                    </div> <!--end col-->
+                </div><!--end row-->
+            </div> <!--end container-->
+        </section><!--end section-->
+        <!-- Hero End -->
+
+
+
+        <!-- javascript -->
+        <script src="{% static 'core/js/jquery.min.js' %}"></script>
+        <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'core/js/jquery.easing.min.js' %}"></script>
+        <script src="{% static 'core/js/scrollspy.min.js' %}"></script>
+        <!-- Switcher -->
+        <script src="{% static 'core/js/switcher.js' %}"></script>
+        <!-- Main Js -->
+        <script src="{% static 'core/js/app.js' %}"></script>
+    </body>
+</html>

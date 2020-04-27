@@ -1,0 +1,283 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}{{profile.user}}{% endblock %}
+{% block content %}
+
+        
+<!-- Hero Start -->
+<section action="" method="post" enctype="multipart/form-data" class="bg-profile d-table w-100" style="background: url('images/account/bg.jpg') center center;">{% csrf_token %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="public-profile position-relative p-4 bg-white overflow-hidden rounded shadow" style="z-index: 1;">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 col-md-3 text-md-left text-center">
+                        {% if profile.avatar %}
+                            <img src="{{profile.avatar.url}}" class="img-fluid">
+                        {% else %}
+                            <img src="{% static 'registration/img/no-avatar.jpg' %}" class="img-fluid">
+                        {% endif %}
+                    </div><!--end col-->
+
+                    <div class="col-lg-10 col-md-9">
+                        <div class="row align-items-center">
+                            <div class="col-md-7 text-md-left text-center mt-4 mt-sm-0">
+                                <h3 class="title mb-0">{{profile.user}}</h3>
+                                <small class="text-muted h6 mr-2">Web Developer</small>
+                                <ul class="list-inline mb-0 mt-3">
+                                    <li class="list-inline-item mr-2"><a href="javascript:void(0)" class="text-muted" title="Linkedin"><i class="mdi mdi-instagram mr-2"></i>{{profile.user}}</a></li>
+                                    <li class="list-inline-item"><a href="javascript:void(0)" class="text-muted" title="Skype"><i class="mdi mdi-skype mr-2"></i>@krista_joseph</a></li>
+                                </ul>
+                            </div><!--end col-->
+                            <div class="col-md-5 text-md-right text-center">
+                                <ul class="list-unstyled profile-icons mb-0 mt-4">
+                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded-pill"><i class="mdi mdi-plus" title="Add Friend"></i></a></li>
+                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded-pill"><i class="mdi mdi-email" title="Messages"></i></a></li>
+                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded-pill"><i class="mdi mdi-bell" title="Notifications"></i></a></li>
+                                    <li class="list-inline-item"><a href="page-profile-edit.html" class="rounded-pill bg-dark"><i class="mdi mdi-tools text-light" title="Edit Profile"></i></a></li>
+                                </ul><!--end icon-->
+                            </div><!--end col-->
+                        </div><!--end row-->
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div>
+        </div><!--end col-->
+    </div><!--end row-->
+</div><!--ed container-->
+</section><!--end section-->
+<!-- Hero End -->
+
+<!-- Profile Start -->
+<section action="" method="post" enctype="multipart/form-data" class="section mt-60">{% csrf_token %}
+<div class="container mt-lg-3">
+    <div class="row">
+        <div class="col-lg-4 col-md-5 col-12">
+            <div class="sidebar p-4 rounded shadow">
+                <div class="widget">
+                    <h5 class="widget-title">Projects :</h5>
+                    <div class="progress-box mt-4">
+                        <h6 class="title text-muted">Progress</h6>
+                        <div class="progress">
+                            <div class="progress-bar position-relative bg-primary" style="width:50%;">
+                                <div class="progress-value d-block text-muted h6">24 / 48</div>
+                            </div>
+                        </div>
+                    </div><!--end process box-->
+                </div>
+                
+                <div class="widget mt-4 pt-2">
+                    <h5 class="widget-title">Members :</h5>
+                    <div class="text-center">
+                        <a href="javascript:void(0)"><img src="images/client/01.jpg" class="avatar avatar-small rounded-pill mt-3" data-toggle="tooltip" data-placement="top" title="Calvin" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/client/02.jpg" class="avatar avatar-small rounded-pill mt-3" data-toggle="tooltip" data-placement="top" title="Meriam" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/client/03.jpg" class="avatar avatar-small rounded-pill mt-3" data-toggle="tooltip" data-placement="top" title="Janelia" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/client/04.jpg" class="avatar avatar-small rounded-pill mt-3" data-toggle="tooltip" data-placement="top" title="Cristino" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/client/05.jpg" class="avatar avatar-small rounded-pill mt-3" data-toggle="tooltip" data-placement="top" title="Rukshar" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/client/06.jpg" class="avatar avatar-small rounded-pill mt-3" data-toggle="tooltip" data-placement="top" title="Rambo" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/client/07.jpg" class="avatar avatar-small rounded-pill mt-3" data-toggle="tooltip" data-placement="top" title="Beardo" alt=""></a>
+                        <a href="javascript:void(0)"><img src="images/client/08.jpg" class="avatar avatar-small rounded-pill mt-3" data-toggle="tooltip" data-placement="top" title="Gogo" alt=""></a>
+                    </div>
+                </div>
+                
+                <div class="widget mt-4 pt-2">
+                    <h5 class="widget-title">Followers :</h5>
+                    <div class="row mt-4">
+                        <div class="col-6 text-center">
+                            <i class="mdi mdi-account-outline mdi-24px text-primary"></i>
+                            <h5 class="mb-0">2588</h5>
+                            <p class="text-muted mb-0">Followers</p>
+                        </div><!--end col-->
+
+                        <div class="col-6 text-center">
+                            <i class="mdi mdi-account-plus-outline mdi-24px text-primary"></i>
+                            <h5 class="mb-0">454</h5>
+                            <p class="text-muted mb-0">Following</p>
+                        </div><!--end col-->
+                    </div><!--end row-->
+                </div>
+
+                <div class="widget mt-4 pt-2">
+                    <h5 class="widget-title">Follow me :</h5>
+                    <ul class="list-unstyled social-icon mb-0 mt-4">
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook" title="Facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram" title="Instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="Twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-google-plus" title="Google +"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-linkedin" title="Linkedin"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-dribbble" title="Dribbble"></i></a></li>
+                    </ul><!--end icon-->
+                </div>
+            </div>
+        </div><!--end col-->
+
+        <div class="col-lg-8 col-md-7 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+            <div class="ml-lg-3">
+                <div class="border-bottom pb-4">
+                    <h5>{{profile.user}}</h5>
+                    <p class="text-muted mb-0">{% if profile.bio %}<p>{{profile.bio}}</p>{% endif %}</p>
+                </div>
+                
+                <div class="border-bottom pb-4">
+                    <div class="row">
+                        <div class="col-lg-6 mt-4">
+                            <h5>Personal Details :</h5>
+                            <ul class="list-inline mb-0 mt-4">
+                                <li>
+                                    <i class="mdi mdi-email float-left text-muted mr-2"></i>
+                                    <div class="overflow-hidden d-block">
+                                        <h6 class="text-primary mb-0">Email :</h6>
+                                        <a href="javascript:void(0)" class="text-muted">{{request.user.email}}</a>
+                                    </div>
+                                </li>
+                                
+                                <li class="mt-3">
+                                    <i class="mdi mdi-book float-left text-muted mr-2"></i>
+                                    <div class="overflow-hidden d-block">
+                                        <h6 class="text-primary mb-0">Skills :</h6>
+                                        <a href="javascript:void(0)" class="text-muted">html</a>, <a href="javascript:void(0)" class="text-muted">css</a>, <a href="javascript:void(0)" class="text-muted">js</a>, <a href="javascript:void(0)" class="text-muted">mysql</a>
+                                    </div>
+                                </li>
+                                
+                                <li class="mt-3">
+                                    <i class="mdi mdi-google float-left text-muted mr-2"></i>
+                                    <div class="overflow-hidden d-block">
+                                        <h6 class="text-primary mb-0">Language :</h6>
+                                        <a href="javascript:void(0)" class="text-muted">English</a>, <a href="javascript:void(0)" class="text-muted">Japanese</a>, <a href="javascript:void(0)" class="text-muted">Chinese</a>
+                                    </div>
+                                </li>
+                                
+                                <li class="mt-3">
+                                    <i class="mdi mdi-earth float-left text-muted mr-2"></i>
+                                    <div class="overflow-hidden d-block">
+                                        <h6 class="text-primary mb-0">Website :</h6>
+                                        <a href="javascript:void(0)" class="text-muted">{% if profile.link %}<p><a href="{{profile.link}}" target="_blank">{{profile.link}}</a></p>{% endif %}</a>
+                                    </div>
+                                </li>
+                                
+                                <li class="mt-3">
+                                    <i class="mdi mdi-cake-variant float-left text-muted mr-2"></i>
+                                    <div class="overflow-hidden d-block">
+                                        <h6 class="text-primary mb-0">Birthday :</h6>
+                                        <p class="text-muted mb-0">2nd March, 1996</p>
+                                    </div>
+                                </li>
+                                
+                                <li class="mt-3">
+                                    <i class="mdi mdi-map-marker float-left text-muted mr-2"></i>
+                                    <div class="overflow-hidden d-block">
+                                        <h6 class="text-primary mb-0">Location :</h6>
+                                        <a href="javascript:void(0)" class="text-muted">Beijing, China</a>
+                                    </div>
+                                </li>
+                                
+                                <li class="mt-3">
+                                    <i class="mdi mdi-phone float-left text-muted mr-2"></i>
+                                    <div class="overflow-hidden d-block">
+                                        <h6 class="text-primary mb-0">Cell No :</h6>
+                                        <a href="javascript:void(0)" class="text-muted">(+12) 1254-56-4896</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div><!--end col-->
+
+                        <div class="col-lg-6 mt-4 pt-2 pt-sm-0">
+                            <h5>Experience :</h5>
+
+                            <ul class="list-inline mb-0 mt-4">
+                                <li class="key-feature d-flex p-3 bg-white rounded shadow">
+                                    <div class="icons text-center rounded-pill mr-3 mt-2">
+                                        <img src="images/job/Circleci.svg" class="avatar avatar-ex-sm" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h4 class="title mb-0">Senior Web Developer</h4>
+                                        <p class="text-muted mb-0">3 Years Experience</p>
+                                        <p class="text-muted mb-0"><a href="javascript:void(0)" class="text-primary">CircleCi</a> @London, UK</p>    
+                                    </div>
+                                </li>
+                                
+                                <li class="key-feature d-flex p-3 bg-white rounded shadow mt-4">
+                                    <div class="icons text-center rounded-pill mr-3 mt-2">
+                                        <img src="images/job/Codepen.svg" class="avatar avatar-ex-sm" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h4 class="title mb-0">Web Designer</h4>
+                                        <p class="text-muted mb-0">2 Years Experience</p>
+                                        <p class="text-muted mb-0"><a href="javascript:void(0)" class="text-primary">Codepen</a> @Washington D.C, USA</p>    
+                                    </div>
+                                </li>
+                                
+                                <li class="key-feature d-flex p-3 bg-white rounded shadow mt-4">
+                                    <div class="icons text-center rounded-pill mr-3 mt-2">
+                                        <img src="images/job/Gitlab.svg" class="avatar avatar-ex-sm" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h4 class="title mb-0">UI Designer</h4>
+                                        <p class="text-muted mb-0">2 Years Experience</p>
+                                        <p class="text-muted mb-0"><a href="javascript:void(0)" class="text-primary">Gitlab</a> @Perth, Australia</p>    
+                                    </div>
+                                </li>
+                            </ul>
+                        </div><!--end col-->
+                    </div><!--end row-->
+                </div>
+
+                <h5 class="mt-4 mb-0">Posts & News :</h5>
+                <div class="row">
+                    <div class="col-lg-6 mt-4 pt-2">
+                        <div class="blog position-relative overflow-hidden shadow rounded">
+                            <div class="position-relative">
+                                <img src="images/blog/01.jpg" class="img-fluid rounded-top" alt="">
+                                <div class="overlay rounded-top bg-dark"></div>
+                            </div>
+                            <div class="content p-4">
+                                <h4><a href="javascript:void(0)" class="title text-dark">Design your apps in your own way</a></h4>
+                                <div class="post-meta mt-3">
+                                    <a href="javascript:void(0)" class="text-muted float-right readmore">Read More <i class="mdi mdi-chevron-right"></i></a>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="list-inline-item mr-2"><a href="javascript:void(0)" class="text-muted like"><i class="mdi mdi-heart-outline mr-1"></i>33</a></li>
+                                        <li class="list-inline-item"><a href="javascript:void(0)" class="text-muted comments"><i class="mdi mdi-comment-outline mr-1"></i>08</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="author">
+                                <small class="text-light user d-block"><i class="mdi mdi-account"></i> {{profile.user}}</small>
+                                <small class="text-light date"><i class="mdi mdi-calendar-check"></i> 13th August, 2019</small>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                    
+                    <div class="col-lg-6 mt-4 pt-2">
+                        <div class="blog position-relative overflow-hidden shadow rounded">
+                            <div class="position-relative">
+                                <img src="images/blog/02.jpg" class="img-fluid rounded-top" alt="">
+                                <div class="overlay rounded-top bg-dark"></div>
+                            </div>
+                            <div class="content p-4">
+                                <h4><a href="javascript:void(0)" class="title text-dark">How apps is changing the IT world</a></h4>
+                                <div class="post-meta mt-3">
+                                    <a href="javascript:void(0)" class="text-muted float-right readmore">Read More <i class="mdi mdi-chevron-right"></i></a>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="list-inline-item mr-2"><a href="javascript:void(0)" class="text-muted like"><i class="mdi mdi-heart-outline mr-1"></i>33</a></li>
+                                        <li class="list-inline-item"><a href="javascript:void(0)" class="text-muted comments"><i class="mdi mdi-comment-outline mr-1"></i>08</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="author">
+                                <small class="text-light user d-block"><i class="mdi mdi-account"></i> {{profile.user}}</small>
+                                <small class="text-light date"><i class="mdi mdi-calendar-check"></i> 13th August, 2019</small>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-12 mt-4 pt-2">
+                        <a href="page-blog.html" class="btn btn-primary">See More <i class="mdi mdi-chevron-right"></i></a>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div>
+        </div><!--end col-->
+    </div><!--end row-->
+</div><!--end container-->
+</section><!--end section-->
+<!-- Profile End -->
+
+{% endblock %}
